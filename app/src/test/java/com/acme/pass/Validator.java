@@ -24,5 +24,14 @@ public class Validator {
 
         // Test rule 3: must not contain any spaces
         assertFalse(password.matches(".*[ ].*"));
+
+        // Test rule 4: must contain at least one digit
+        assertTrue(password.matches(".*[0-9].*"));
+
+        // Test rule 5: must be less than 33 characters
+        assertTrue(password.length() < 33);
+
+        // Test rule 6: must contain both upper-case and lower-case characters
+        assertTrue(password.matches("(.*[a-z].*[A-Z].*)|(.*[A-Z].*[a-z].*)"));
     }
 }
