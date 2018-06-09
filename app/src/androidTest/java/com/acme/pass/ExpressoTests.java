@@ -19,27 +19,18 @@ import static android.support.test.espresso.Espresso.*;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.widget.EditText;
 
 import org.junit.runner.RunWith;
 import org.junit.Rule;
 
-import com.acme.pass.Validator;
-
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class ExpressoTests {
-    // Input text field:    passwordInput
-    // Output text:         strengthOutput
-    // Button:              validateButton
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule(MainActivity.class);
 
     @Test
     public void weakPW() {
-        Context appContext = InstrumentationRegistry.getTargetContext();
-        //setContentView(R.layout.activity_main);
-
         onView(withId(R.id.passwordInput)).perform(typeText("me"));
         onView(withId(R.id.validateButton)).perform(click());
         onView(withId(R.id.strengthOutput)).check(matches(withText("Not strong enough")));

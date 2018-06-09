@@ -4,17 +4,9 @@ public class Validator {
 
     public void Validator() {}
 
-    /*
-    Make each test it's own method that returns a pass/fail boolean
-    Run the tests from the ExpressoTests class, and count how many pass from over there
-
-    Make each test in Validator increment a passCount if it succeeds.
-    Then return that passCount to ExpressoTests
-     */
-
-
     public int validate(String password) throws Exception {
         int passCount = 0;
+
         // Test rule 1: cannot be a case-variant of "password"
         String lowercasePassword = new String();
         lowercasePassword = password.toLowerCase();
